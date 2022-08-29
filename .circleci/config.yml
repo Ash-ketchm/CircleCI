@@ -28,6 +28,13 @@ jobs:
         - run:
             name: Install Dependencies
             command: timeout 1m lscpu
+    DevopSSH:
+      docker:
+            - image: circleci/sshd
+      steps:
+        - run:
+            name: Install Dependencies
+            command: timeout 1m lscpu
 workflows:
     version: 2.1
     build:
@@ -36,3 +43,4 @@ workflows:
             - Devop1
             - Devop2
             - Devop3
+            - DevopSSH
